@@ -34,7 +34,7 @@ public class App {
         JButton send = new JButton("Send");
         JButton reset = new JButton("Reset");
         JTextArea textArea = new JTextArea();
-        ActionListener actionListener = new ActionListener() {
+        ActionListener actionListenerSend = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String text = textField.getText();
@@ -44,7 +44,14 @@ public class App {
                 }
             }
         };
-        send.addActionListener(actionListener);
+        ActionListener resetTextFieldAction = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                textField.setText("");
+            }
+        };
+        send.addActionListener(actionListenerSend);
+        reset.addActionListener(resetTextFieldAction);
         panel.add(label);
         panel.add(label1);
         panel.add(textField);
